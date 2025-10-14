@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications | Learning Platform</title>
+  <link rel="stylesheet" href="notification.css">
+</head>
+<body>
+
+  <div class="navbar">
+    <h2>📚 Learning Platform</h2>
+    <div class="nav-links">
+
+      <a href="index.html">🏠 Dashboard</a>
+      <a href="settings.html">⚙️ Settings</a>
+      <a href="Home.html">Home</a>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>🔔 Notifications</h1>
+      <button id="markAll">Mark All as Read</button>
+    </div>
+
+    <div class="notification-list">
+      <div class="notification unread">
+        <div class="icon">🎯</div>
+        <div class="text">
+          <h3>New Quiz Added</h3>
+          <p>Try the new “JavaScript Basics” quiz to boost your score.</p>
+          <span class="time">2 hrs ago</span>
+        </div>
+      </div>
+
+      <div class="notification unread">
+        <div class="icon">🏆</div>
+        <div class="text">
+          <h3>Leaderboard Update</h3>
+          <p>Congrats! You’ve moved up 5 ranks in the leaderboard.</p>
+          <span class="time">Yesterday</span>
+        </div>
+      </div>
+
+      <div class="notification">
+        <div class="icon">💡</div>
+        <div class="text">
+          <h3>Study Tip</h3>
+          <p>Review past quizzes to improve accuracy and timing.</p>
+          <span class="time">2 days ago</span>
+        </div>
+      </div>
+
+      <div class="notification">
+        <div class="icon">⚙️</div>
+        <div class="text">
+          <h3>System Update</h3>
+          <p>Your account settings were updated successfully.</p>
+          <span class="time">3 days ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="notification.js"></script>
+</body>
+</html>

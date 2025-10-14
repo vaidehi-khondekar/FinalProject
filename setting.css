@@ -1,0 +1,165 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(145deg, #1b1b1b, #2c2c2c);
+  color: #ddd;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d2f33;
+  padding: 15px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.navbar h2 {
+  color: #fff;
+  margin: 0;
+  font-weight: 600;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  background: #3c3f44;
+  padding: 8px 14px;
+  margin-left: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background: #4e9cff;
+}
+
+/* Container */
+.container {
+  width: 80%;
+  max-width: 600px;
+  background: #2d2f33;
+  margin: 50px auto;
+  border-radius: 15px;
+  padding: 25px 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.desc {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+/* Settings Item */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3b3f44;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: background 0.3s;
+}
+
+.setting-item:hover {
+  background: #44484e;
+}
+
+.setting-item label {
+  color: #fff;
+  font-size: 15px;
+}
+
+/* Custom Switch Button */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #555;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4e9cff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Select & Checkbox */
+select, input[type="checkbox"] {
+  background: #3b3f44;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 14px;
+}
+
+/* Save Button */
+#saveBtn {
+  width: 100%;
+  padding: 10px;
+  background: #4e9cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+#saveBtn:hover {
+  background: #317ae3;
+}
+
+/* Message */
+.save-msg {
+  text-align: center;
+  margin-top: 10px;
+  color: #4e9cff;
+  font-weight: 500;
+}

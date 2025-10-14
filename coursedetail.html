@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vislona | Course Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    header {
+      background: #1b1b1b;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #50e3c2;
+      cursor: pointer;
+    }
+
+    header nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+    }
+
+    header nav a.active,
+    header nav a:hover {
+      color: #50e3c2;
+    }
+
+    nav a.back-home {
+      color: #50e3c2;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    nav a.back-home:hover {
+      color: #4a90e2;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .course-image {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    .course-title {
+      font-size: 2.5rem;
+      margin: 20px 0 30px 0;
+      color: #ffffff;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .content-columns {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .syllabus, .lessons-list, .quizzes {
+      flex: 1;
+      min-width: 280px;
+      max-width: 350px;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(80, 227, 194, 0.2);
+    }
+
+    .syllabus h2,
+    .lessons-list h3,
+    .quizzes h3 {
+      color: #50e3c2;
+      border-bottom: 2px solid #4a90e2;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #ddd;
+      font-weight: 500;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    .lessons-list ul li a,
+    .quizzes ul li a {
+      color: #50e3c2;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .lessons-list ul li a:hover,
+    .quizzes ul li a:hover {
+      color: #4a90e2;
+    }
+
+    .section-icon img {
+      width: 36px;
+      height: 36px;
+      /* Adjusting the filter to be visible on a dark background */
+      filter: invert(47%) sepia(87%) saturate(362%) hue-rotate(130deg) brightness(101%) contrast(98%) drop-shadow(0 0 4px rgba(80, 227, 194, 0.5));
+    }
+
+    @media (max-width: 992px) {
+      .content-columns {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content-columns {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo" onclick="location.href='index.html'">Vislona</div>
+    <nav>
+      <a href="Home.html">Home</a>
+      <a href="courses.html" class="active">Courses</a>
+    </nav>
+  </header>
+
+  <div class="container" id="courseDetail">
+    </div>
+
+  <script>
+    // **1. Course Data Definition**
+    const courses = [
+        {
+            id: "web-development",
+            title: "Full-Stack Web Development Mastery",
+            image: "https://via.placeholder.com/300x200?text=Web+Dev+Course", // Placeholder image
+            syllabus: [
+                "Introduction to HTML5 & CSS3",
+                "Advanced CSS: Flexbox & Grid",
+                "JavaScript Fundamentals",
+                "DOM Manipulation and Events",
+                "Introduction to Node.js and Express",
+                "Database Integration (MongoDB/SQL)",
+                "Building RESTful APIs",
+                "Frontend Frameworks (React/Vue Intro)"
+            ],
+            lessons: [
+                { title: "Setup and Tools" },
+                { title: "Creating Your First Web Page" },
+                { title: "Styling with CSS" },
+                { title: "Interactive JavaScript" },
+                { title: "Backend Setup" },
+                { title: "Deployment Basics" }
+            ]
+        },
+        {
+            id: "data-science",
+            title: "Data Science with Python",
+            image: "https://via.placeholder.com/300x200?text=Data+Science+Course",
+            syllabus: [
+                "Python for Data Analysis (Pandas, NumPy)",
+                "Data Visualization (Matplotlib, Seaborn)",
+                "Statistical Analysis and Hypothesis Testing",
+                "Machine Learning Fundamentals (Scikit-learn)",
+                "Deep Learning Introduction (TensorFlow/PyTorch)"
+            ],
+            lessons: [
+                { title: "Setting up the Environment" },
+                { title: "Data Cleaning with Pandas" },
+                { title: "Exploratory Data Analysis" },
+                { title: "Building a Regression Model" }
+            ]
+        }
+        // Add more courses here
+    ];
+
+    // **2. Missing Function Implementation**
+    function getCourseById(courseId) {
+      // Find the course object in the 'courses' array
+      return courses.find(course => course.id === courseId);
+    }
+
+    // **3. Original Functions**
+    function goBack(event) {
+      event.preventDefault();
+      if (document.referrer) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function renderCourseDetail(courseId) {
+      const course = getCourseById(courseId);
+      if (!course) {
+        document.getElementById("courseDetail").innerHTML = "<p class='course-title'>Course not found.</p>";
+        return;
+      }
+
+      const syllabusHTML = course.syllabus.map(item => `<li>• ${item}</li>`).join("");
+      const lessonsHTML = course.lessons.map((lesson, index) =>
+        `<li><a href="lessonviewer.html?course=${course.id}&lesson=${index}">▶ ${lesson.title}</a></li>`
+      ).join("");
+      // Mock quizzes data for each course
+      const quizzes = [
+        { title: "Quiz 1: Basics" },
+        { title: "Quiz 2: Intermediate Concepts" },
+        { title: "Final Quiz: Course Review" }
+      ];
+      const quizzesHTML = quizzes.map(q =>
+        `<li><a href="#" onclick="alert('Quiz functionality coming soon!')">📝 ${q.title}</a></li>`
+      ).join("");
+
+      document.getElementById("courseDetail").innerHTML = `
+        <img src="${course.image}" alt="${course.title}" class="course-image" />
+        <h1 class="course-title">${course.title}</h1>
+        <div class="content-columns">
+          <section class="syllabus">
+            <h2>
+              <span class="section-icon">
+                <img src="https://img.icons8.com/ios-filled/50/50e3c2/task.png" alt="Syllabus Icon" />
+              </span>
+              Syllabus
+            </h2>
+            <ul>${syllabusHTML}</ul>
+          </section>
+
+          <section class="lessons-list">
+            <h3>
+              <span class="section-icon">
+                <img src="https://img.icons8.com/ios-filled/50/50e3c2/play-button-circled.png" alt="Lessons Icon" />
+              </span>
+              Lessons
+            </h3>
+            <ul>${lessonsHTML}</ul>
+          </section>
+
+          <section class="quizzes">
+            <h3>
+              <span class="section-icon">
+                <img src="https://img.icons8.com/ios-filled/50/50e3c2/quiz.png" alt="Quiz Icon" />
+              </span>
+              Quizzes
+            </h3>
+            <ul>${quizzesHTML}</ul>
+          </section>
+        </div>
+      `;
+    }
+
+    // **4. Execution**
+    const courseId = getQueryParam("course") || "web-development";
+    renderCourseDetail(courseId);
+  </script>
+
+</body>
+</html>

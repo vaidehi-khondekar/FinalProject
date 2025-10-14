@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vislona | Courses</title>
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #E0E0E0;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: #1E1E1E;
+    box-shadow: 0 2px 8px rgba(74,144,226,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 2rem;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #50E3C2;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s;
+  }
+  .logo:hover {
+    color: #4A90E2;
+  }
+
+  .navbar nav {
+    display: flex;
+    gap: 2rem;
+  }
+  .navbar nav a {
+    color: #A0A0A0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.3s, background 0.3s;
+  }
+  .navbar nav a:hover,
+  .navbar nav a.active {
+    color: #50E3C2;
+    background: #2a2a2a;
+  }
+
+  /* Search and sort container */
+  .search-sort {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Search input */
+  input[type="text"] {
+    background: #222;
+    color: #50E3C2;
+    border: 2px solid #50E3C2;
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    outline: none;
+    font-weight: 600;
+    width: 220px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  input[type="text"]::placeholder {
+    color: #789;
+    font-weight: 500;
+  }
+  input[type="text"]:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 10px #4A90E2AA;
+    background: #1a1a1a;
+    color: #4A90E2;
+  }
+
+  /* Sort select */
+  select {
+    background: #222;
+    color: #50E3C2;
+    border: 2px solid #50E3C2;
+    border-radius: 30px;
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 160px;
+  }
+  select:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 10px #4A90E2AA;
+    background: #1a1a1a;
+    color: #4A90E2;
+  }
+
+  /* Course grid */
+  .course-grid {
+    max-width: 1100px;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 2.2rem;
+    padding: 0 1.5rem;
+  }
+
+  /* Individual course card */
+  .course-card {
+    background: #1F1F1F;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.35);
+  }
+  .course-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .course-card-content {
+    padding: 1.3rem 1.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .course-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.3rem;
+    color: #4A90E2;
+  }
+  .course-card p {
+    margin: 0 0 1.3rem;
+    font-weight: 600;
+    color: #A0A0A0;
+    flex-grow: 1;
+  }
+  .course-card a {
+    align-self: flex-start;
+    background: #50E3C2;
+    color: #121212;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  .course-card a:hover {
+    background: #4A90E2;
+    color: #e0e0e0;
+  }
+</style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo" onclick="location.href='index.html'">Vislona</div>
+    <nav>
+      <a href="Home.html"><button>Home</button></a>
+      <a href="course.html" class="active">Courses</a>
+    </nav>
+    <div class="search-sort">
+      <input type="text" id="searchBar" placeholder="Search courses..." oninput="filterCourses()" />
+      <select id="sortSelect" onchange="sortCourses()">
+        <option value="title">Sort by Title</option>
+        <option value="level">Sort by Level</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="course-grid" id="courseGrid"></section>
+
+  <script>
+    const courses = [
+      { id: 'web-development', title: "Web Development", level: "Beginner", image: "web_development_Z62jy4k.jpg" },
+      { id: 'data-science', title: "Data Science", level: "Intermediate", image: "datascience.jpg" },
+      { id: 'ui-ux-design', title: "UI/UX Design", level: "Beginner", image: "uiux.jpg" },
+      { id: 'cybersecurity', title: "Cybersecurity", level: "Advanced", image: "cybersec.jpg" }
+    ];
+
+    function renderCourses(data) {
+      const grid = document.getElementById("courseGrid");
+      grid.innerHTML = "";
+      data.forEach(course => {
+        grid.innerHTML += `
+          <div class="course-card">
+            <img src="${course.image}" alt="${course.title}" />
+            <div class="course-card-content">
+              <h3>${course.title}</h3>
+              <p>${course.level}</p>
+              <a href="coursedetail.html?course=${course.id}">View Details</a>
+            </div>
+          </div>`;
+      });
+    }
+
+    function filterCourses() {
+      const query = document.getElementById("searchBar").value.toLowerCase();
+      const filtered = courses.filter(course =>
+        course.title.toLowerCase().includes(query)
+      );
+      renderCourses(filtered);
+    }
+
+    function sortCourses() {
+      const key = document.getElementById("sortSelect").value;
+      const sorted = [...courses].sort((a, b) =>
+        a[key].localeCompare(b[key])
+      );
+      renderCourses(sorted);
+    }
+
+    renderCourses(courses);
+  </script>
+</body>
+</html>

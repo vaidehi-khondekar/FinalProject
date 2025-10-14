@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Learning Platform</title>
+  <link rel="stylesheet" href="setting.css">
+</head>
+<body>
+
+  <div class="navbar">
+    <h2>📚 Learning Platform</h2>
+    <div class="nav-links">
+      <a href="index.html">🏠 Dashboard</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="Home.html">Home</a>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>⚙️ Settings</h1>
+    <p class="desc">Customize your learning experience below.</p>
+
+    <div class="setting-item">
+      <label>🌙 Dark Mode</label>
+      <label class="switch">
+        <input type="checkbox" id="darkMode">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-item">
+      <label>🔔 Notification Sound</label>
+      <select id="notifSound">
+        <option value="chime">Chime</option>
+        <option value="bell">Bell</option>
+        <option value="pop">Pop</option>
+      </select>
+    </div>
+
+    <div class="setting-item">
+      <label>📩 Email Updates</label>
+      <input type="checkbox" id="emailUpdates">
+    </div>
+
+    <button id="saveBtn">💾 Save Settings</button>
+    <p id="saveMessage" class="save-msg"></p>
+  </div>
+
+  <script src="setting.js"></script>
+</body>
+</html>
