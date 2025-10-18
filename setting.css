@@ -1,7 +1,7 @@
 body {
   font-family: "Segoe UI", sans-serif;
   background: linear-gradient(145deg, #1b1b1b, #2c2c2c);
-  color: #ddd;
+  color:#00ffc3;
   margin: 0;
   min-height: 100vh;
 }
@@ -17,14 +17,14 @@ body {
 }
 
 .navbar h2 {
-  color: #fff;
+  color:#00ffc3;
   margin: 0;
   font-weight: 600;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: #00ffc3;
   background: #3c3f44;
   padding: 8px 14px;
   margin-left: 10px;
@@ -50,7 +50,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #fff;
+  color: #00ffc3;
   margin-bottom: 10px;
 }
 
@@ -77,7 +77,7 @@ h1 {
 }
 
 .setting-item label {
-  color: #fff;
+  color:#00ffc3;
   font-size: 15px;
 }
 
@@ -114,7 +114,7 @@ h1 {
   width: 16px;
   left: 4px;
   bottom: 3px;
-  background-color: white;
+  background-color:#00ffc3;
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -130,7 +130,7 @@ input:checked + .slider:before {
 /* Select & Checkbox */
 select, input[type="checkbox"] {
   background: #3b3f44;
-  color: #fff;
+  color:#00ffc3;
   border: none;
   border-radius: 5px;
   padding: 6px;
@@ -142,7 +142,7 @@ select, input[type="checkbox"] {
   width: 100%;
   padding: 10px;
   background: #4e9cff;
-  color: white;
+  color: #00ffc3;
   border: none;
   border-radius: 8px;
   font-size: 16px;
