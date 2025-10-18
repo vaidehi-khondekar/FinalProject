@@ -2,7 +2,7 @@
 body {
   font-family: "Segoe UI", sans-serif;
   background: linear-gradient(145deg, #1b1b1b, #2c2c2c);
-  color: #ddd;
+  color: #00ffc3;
   margin: 0;
   min-height: 100vh;
 }
@@ -18,14 +18,14 @@ body {
 }
 
 .navbar h2 {
-  color: #fff;
+  color:#00ffc3;
   margin: 0;
   font-weight: 600;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color:#00ffc3;
   background: #3c3f44;
   padding: 8px 14px;
   margin-left: 10px;
@@ -60,13 +60,13 @@ body {
 }
 
 .header h1 {
-  color: #fff;
+  color: #00ffc3;
   font-size: 22px;
 }
 
 #markAll {
   background: #4e9cff;
-  color: white;
+  color: #00ffc3;
   border: none;
   border-radius: 8px;
   padding: 8px 14px;
@@ -106,13 +106,13 @@ body {
 
 .text h3 {
   margin: 0;
-  color: #fff;
+  color:#00ffc3;
   font-size: 16px;
 }
 
 .text p {
   margin: 5px 0;
-  color: #ccc;
+  color: #ffffff;
   font-size: 14px;
 }
 
